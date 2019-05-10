@@ -22,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
   }
 else{
 	$age = $_POST["age"];
-	$today = new Datetime(date('m.d.Y'));
+	$today = new Datetime(date('d.m.Y'));
 	$birthdate = new DateTime($_POST["birthdate"]);
 	$difference = $today->diff($birthdate);
 	if ($age != $difference->y) {
-		$bdayErr = "Alderen samsvarer ikke med fødselsdato!";
+		$birthdateError = "Alderen samsvarer ikke med fødselsdato!";
 	}
   }
 }
