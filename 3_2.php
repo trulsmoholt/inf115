@@ -1,8 +1,6 @@
 <?php
 $conn = OpenCon();
 
-
-$firstquery = "SELECT dept_name, first_name, last_name from (departments inner join dept_manager on departments.dept_no = dept_manager.dept_no) inner join employees on employees.emp_no = dept_manager.emp_no";
 $sql = "SELECT dept_name, dept_no FROM departments";
 $result = $conn->query($sql);
 

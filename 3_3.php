@@ -2,9 +2,7 @@
 $conn = OpenCon();
 
 
-$firstquery = "SELECT dept_name, first_name, last_name from (departments inner join dept_manager on departments.dept_no = dept_manager.dept_no) inner join employees on employees.emp_no = dept_manager.emp_no";
-$sql = "SELECT dept_name, dept_no FROM departments";
-$result = $conn->query($sql);
+
 
 function OpenCon()
  {
@@ -37,10 +35,10 @@ function CloseCon($conn)
 <th>ant menn</th>
 </tr>
 <?php
-$decade = array("40","50","60","70","80","90","00","10");
+$decade = array("1940","1950","1960","1970","1980","1990","2000","2010");
 for($i = 1;$i<count($decade);$i++){
 	echo "<tr> <td>".$decade[$i -1 ]."s :</td>";
-	$sql = "SELECT COUNT(*) AS number ,gender FROM employees WHERE birth_date BETWEEN '19" . $decade[$i - 1] . "-01-01' AND '19" . $decade[$i] . "-01-01' GROUP BY gender";
+	$sql = "SELECT COUNT(*) AS number ,gender FROM employees WHERE birth_date BETWEEN '" . $decade[$i - 1] . "-01-01' AND '" . $decade[$i] . "-01-01' GROUP BY gender";
 	$query = $conn->query($sql);
 	$row1 = $query->fetch_assoc();
 	$row2 = $query->fetch_assoc();
